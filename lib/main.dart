@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-// Jalur folder asli proyekmu
 import 'screens/users/menu_list_screen.dart'; 
 import 'screens/admin/menu_screen.dart'; 
 import 'screens/admin/login_screen.dart'; 
