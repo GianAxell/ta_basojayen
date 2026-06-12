@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'screens/users/menu_list_screen.dart'; 
 import 'screens/admin/menu_screen.dart'; 
 import 'screens/admin/login_screen.dart'; 
-import 'screens/admin/dashboard_screen.dart'; // PASTIKAN IMPORT INI ADA
-import 'screens/admin/pesanan_masuk.dart';    // PASTIKAN IMPORT INI ADA
+import 'screens/admin/dashboard_screen.dart';
+import 'screens/admin/pesanan_masuk.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Baso Jayen POS',
       debugShowCheckedModeBanner: false,
-      initialRoute: '/menu', // Pertama kali dibuka diarahkan ke menu pembeli
+      initialRoute: '/menu',
       routes: {
         // 1. Rute Sisi Pembeli
         '/menu': (context) => const MenuListScreen(),
@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         // 2. Rute Sisi Login Admin
         '/login-admin': (context) => const AdminLoginScreen(), 
         
-        // 3. PERBAIKAN RUTING: Daftarkan /admin-dashboard agar sinkron dengan sidebar drawer
+        // 3. Daftarkan /admin-dashboard
         '/admin-dashboard': (context) => const AdminDashboardScreen(), 
 
         // 4. Rute Manajemen Tabel Menu Admin Paket A-J
