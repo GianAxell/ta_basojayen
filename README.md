@@ -116,5 +116,4 @@ lib/
 
 ## Credits
 
-- **Dosen Pembimbing:** [Nama Dosen]
-- **Teknologi:** Flutter, Supabase, Google Fonts, Intl, mobile_scanner
+- **Dosen:** Ade Sutedi, S.T., M.Kom.
