@@ -1,7 +1,7 @@
-import 'dart:html' as html;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../utils/qr_download_native.dart' if (dart.library.html) '../../utils/qr_download_web.dart';
 
 class AdminQRTableScreen extends StatefulWidget {
   const AdminQRTableScreen({super.key});
@@ -179,13 +179,24 @@ class _AdminQRTableScreenState extends State<AdminQRTableScreen> {
           const SizedBox(height: 6),
           GestureDetector(
             onTap: () async {
-              final bytes = await rootBundle.load('assets/images/qrcode/$tableNum.jpeg');
-              final blob = html.Blob([bytes.buffer]);
-              final blobUrl = html.Url.createObjectUrlFromBlob(blob);
-              html.AnchorElement(href: blobUrl)
-                ..download = 'QR_Meja_$tableNum.png'
-                ..click();
-              html.Url.revokeObjectUrl(blobUrl);
+              try {
+                final bytes = (await rootBundle.load('assets/images/qrcode/$tableNum.jpeg')).buffer.asUint8List();
+                await downloadQrCode(bytes, tableNum.toString());
+                if (mounted) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text('QR Meja $tableNum berhasil diunduh'),
+                      backgroundColor: Colors.green,
+                    ),
+                  );
+                }
+              } catch (e) {
+                if (mounted) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text('Gagal mengunduh QR'), backgroundColor: Colors.red),
+                  );
+                }
+              }
             },
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),

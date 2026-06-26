@@ -11,48 +11,29 @@ class ScanQRScreen extends StatefulWidget {
 }
 
 class _ScanQRScreenState extends State<ScanQRScreen> with WidgetsBindingObserver {
-  late final MobileScannerController _controller;
+  MobileScannerController? _controller;
   bool _isProcessing = false;
-  bool _isControllerStarted = false;
 
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
     _controller = MobileScannerController();
-    _startScanner();
   }
 
   @override
   void dispose() {
     WidgetsBinding.instance.removeObserver(this);
-    _controller.dispose();
+    _controller?.dispose();
     super.dispose();
   }
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
-    if (state == AppLifecycleState.resumed && !_isControllerStarted) {
-      _startScanner();
+    if (state == AppLifecycleState.resumed) {
+      _controller?.start();
     } else if (state == AppLifecycleState.paused) {
-      _stopScanner();
-    }
-  }
-
-  Future<void> _startScanner() async {
-    try {
-      await _controller.start();
-      _isControllerStarted = true;
-    } catch (_) {
-      _isControllerStarted = false;
-    }
-  }
-
-  Future<void> _stopScanner() async {
-    try {
-      await _controller.stop();
-    } finally {
-      _isControllerStarted = false;
+      _controller?.stop();
     }
   }
 
@@ -68,7 +49,7 @@ class _ScanQRScreenState extends State<ScanQRScreen> with WidgetsBindingObserver
       final tableNumber = uri.queryParameters['table'] ?? '';
       if (tableNumber.isNotEmpty) {
         _isProcessing = true;
-        _stopScanner().then((_) {
+        _controller?.stop().then((_) {
           if (mounted) {
             Navigator.pushReplacement(
               context,
@@ -101,7 +82,7 @@ class _ScanQRScreenState extends State<ScanQRScreen> with WidgetsBindingObserver
           MobileScanner(
             controller: _controller,
             onDetect: _onDetect,
-            errorBuilder: (context, error, child) {
+            errorBuilder: (context, error) {
               return Center(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
@@ -115,7 +96,7 @@ class _ScanQRScreenState extends State<ScanQRScreen> with WidgetsBindingObserver
                     const SizedBox(height: 8),
                     TextButton(
                       onPressed: () {
-                        _startScanner();
+                        _controller?.start();
                         setState(() {});
                       },
                       child: Text('Coba Lagi', style: GoogleFonts.inter(color: Colors.white)),
@@ -163,7 +144,7 @@ class _ScanQRScreenState extends State<ScanQRScreen> with WidgetsBindingObserver
             bottom: MediaQuery.of(context).size.height * 0.15,
             child: IconButton(
               icon: const Icon(Icons.flashlight_on, color: Colors.white, size: 28),
-              onPressed: () => _controller.toggleTorch(),
+              onPressed: () => _controller?.toggleTorch(),
             ),
           ),
         ],

@@ -1,4 +1,3 @@
-// Isi dengan credential dari Supabase project Anda
 // Buka Settings → API → cari Project URL & anon key
 class AppConfig {
   static const String supabaseUrl = 'https://mqbxqdktplmpliussybu.supabase.co';
