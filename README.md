@@ -12,7 +12,6 @@ Aplikasi **Point of Sale (POS)** untuk restoran Baso Jayen berbasis Flutter deng
 - Keranjang belanja
 - Checkout dengan data diri
 - Pembayaran (simulasi — E-Wallet / Transfer Bank)
-- Status pesanan real-time
 
 ### Admin
 - **Dashboard:** Ringkasan penjualan harian, jumlah pesanan
