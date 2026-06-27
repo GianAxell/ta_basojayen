@@ -40,7 +40,7 @@ Aplikasi **Point of Sale (POS)** untuk restoran Baso Jayen berbasis Flutter deng
 |-------------|---------|
 | **Android OS** | API 24 — Android 7.0 (Nougat) ke atas |
 | **RAM** | 2 GB (disarankan 3 GB+) |
-| **Penyimpanan** | ~50 MB free space |
+| **Penyimpanan** | ~500 MB free space |
 | **Izin** | Kamera (untuk scan QR), Internet |
 | **Koneksi** | Internet aktif (untuk Supabase backend) |
 
