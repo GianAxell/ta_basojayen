@@ -26,7 +26,7 @@ Aplikasi **Point of Sale (POS)** untuk restoran Baso Jayen berbasis Flutter deng
 | Komponen | Teknologi |
 |----------|-----------|
 | Frontend | Flutter (Dart) — target Web & Android |
-| Backend | Supabase (PostgreSQL, Realtime, Storage) |
+| Backend | Supabase (PostgreSQL, Storage) |
 | QR Scanner | mobile_scanner v7 |
 | Image Upload | Supabase Storage |
 | State Management | setState |
