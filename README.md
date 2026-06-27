@@ -111,6 +111,14 @@ lib/
     └── menu_image.dart           # Widget gambar menu
 ```
 
+## QR Code Meja
+
+| Meja 1 | Meja 2 | Meja 3 |
+|--------|--------|--------|
+| ![Meja 1](assets/images/qrcode/1.jpeg) | ![Meja 2](assets/images/qrcode/2.jpeg) | ![Meja 3](assets/images/qrcode/3.jpeg) |
+| **Meja 4** | **Meja 5** | **Meja 6** |
+| ![Meja 4](assets/images/qrcode/4.jpeg) | ![Meja 5](assets/images/qrcode/5.jpeg) | ![Meja 6](assets/images/qrcode/6.jpeg) |
+
 ## Catatan Build
 
 | Perintah | Keterangan |
