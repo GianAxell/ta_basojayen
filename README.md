@@ -4,6 +4,9 @@ Aplikasi **Point of Sale (POS)** untuk restoran Baso Jayen berbasis Flutter deng
 
 📥 **[Download APK v1.0.0](https://github.com/GianAxell/ta_basojayen/releases/latest)**
 
+## Username & Password Admin
+- **Username:** admin
+- **Password:** jayen123 
 ## Fitur
 
 ### User (Pelanggan)
